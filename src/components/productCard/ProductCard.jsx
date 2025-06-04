@@ -6,9 +6,6 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 export default function ProductCard({ product }) {
   const navigate = useNavigate();
 
-  if (!product) {
-    return <></>;
-  }
   return (
     <div className="product-card" onClick={() => navigate(`/products/${product.id}`)}>
       <div className="product-img">

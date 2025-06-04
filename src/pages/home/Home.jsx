@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 export default function Home() {
   const navigate = useNavigate();
 
-  const [products, setProducts] = useState(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [products, setProducts] = useState(null);
   const [bestProducts, setBestProducts] = useState(null);
 
   // import de l'api
@@ -16,7 +16,7 @@ export default function Home() {
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => setProducts(response.data))
-      .catch(console.error);
+      .catch((error) => console.error(error));
   }, []);
   // sélectionne les 4 premiers produits avec 4 étoiles ou plus
   useEffect(() => {
@@ -37,13 +37,38 @@ export default function Home() {
     <section className="home">
       <div className="homeDiv">
         <div className="home-carousel">
-          {bestProducts ? <img src={bestProducts[carouselIndex].image} alt="" /> : <></>}
+          {bestProducts ? (
+            <img src={bestProducts[carouselIndex].image} alt="" />
+          ) : (
+            <img src="https://user-images.githubusercontent.com/20684618/31289519-9ebdbe1a-aae6-11e7-8f82-bf794fdd9d1a.png" alt="" />
+          )}
           <div onClick={() => navigate(`/products/${bestProducts[carouselIndex].id}`)}>
             <p>Aller voir le produit</p>
           </div>
         </div>
         <h1>Nos produits les mieux notés</h1>
-        <div className="home-products">{bestProducts ? bestProducts.map((product) => <ProductCard key={product.id} product={product} />) : <></>}</div>
+        <div className="home-products">
+          {bestProducts
+            ? bestProducts.map((product) => <ProductCard key={product.id} product={product} />)
+            : Array.from({ length: 4 }).map((item) => (
+                <div className="card" aria-hidden="true" style={{ width: "220px" }}>
+                  <img src="https://user-images.githubusercontent.com/20684618/31289519-9ebdbe1a-aae6-11e7-8f82-bf794fdd9d1a.png" alt="" />{" "}
+                  <div className="card-body">
+                    <h5 className="card-title placeholder-glow">
+                      <span className="placeholder col-6" />
+                    </h5>
+                    <p className="card-text placeholder-glow">
+                      <span className="placeholder col-7" />
+                      <span className="placeholder col-4" />
+                      <span className="placeholder col-4" />
+                      <span className="placeholder col-6" />
+                      <span className="placeholder col-8" />
+                    </p>
+                    <a className="btn btn-primary disabled placeholder col-6" aria-disabled="true" />
+                  </div>
+                </div>
+              ))}
+        </div>
       </div>
     </section>
   );
