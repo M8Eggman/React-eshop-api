@@ -1,5 +1,9 @@
 import "./Footer.css";
 
 export default function Footer() {
-  return <></>;
+  return (
+    <footer>
+      <p>&copy;2025 Eshopy - Tous droits réservés</p>
+    </footer>
+  );
 }
