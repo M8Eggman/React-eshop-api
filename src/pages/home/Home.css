@@ -1,6 +1,7 @@
 .home {
   display: flex;
   justify-content: center;
+   min-height: calc(100dvh - (50px + 60px));
 }
 .homeDiv {
   margin-block: 25px;

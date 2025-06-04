@@ -15,7 +15,6 @@ export default function Products() {
       .get("https://fakestoreapi.com/products")
       .then((response) => setProducts(response.data))
       .catch((error) => console.error(error));
-      
   }, []);
 
   const filteredProducts = selectedCat === "all" ? products : products.filter((p) => p.category === selectedCat);
