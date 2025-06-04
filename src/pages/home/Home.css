@@ -1,0 +1,58 @@
+.home {
+  display: flex;
+  justify-content: center;
+}
+.homeDiv {
+  margin-block: 25px;
+}
+.homeDiv h1 {
+  margin: 24px 0 16px 0;
+  font-size: 2rem;
+  text-align: left;
+}
+.home-carousel {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-carousel:hover::after {
+  content: "";
+}
+.home-carousel img {
+  height: 100%;
+}
+.home-carousel > div {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.home-carousel > div p {
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.home-carousel:hover > div {
+  background-color: rgba(0, 0, 0, 0.25);
+  pointer-events: all;
+  opacity: 1;
+}
+.home-products {
+  display: flex;
+  gap: 20px;
+}
