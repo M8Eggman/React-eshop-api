@@ -14,15 +14,16 @@
 .product-card:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
-.product-card img {
+.product-img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;
+  width: 200px;
   height: 120px;
+  overflow: hidden;
 }
-.product-card img {
-  width: 120px;
+.product-img img {
+  height: 100px;
   margin-bottom: 12px;
 }
 .product-card h2 {

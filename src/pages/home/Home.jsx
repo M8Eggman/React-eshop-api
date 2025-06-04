@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <section className="home">
-      <div className="homeDiv">
+      <div className="home-div">
         <div className="home-carousel">
           {bestProducts ? (
             <img src={bestProducts[carouselIndex].image} alt="" />
@@ -50,8 +50,8 @@ export default function Home() {
         <div className="home-products">
           {bestProducts
             ? bestProducts.map((product) => <ProductCard key={product.id} product={product} />)
-            : Array.from({ length: 4 }).map((item) => (
-                <div className="card" aria-hidden="true" style={{ width: "220px" }}>
+            : Array.from({ length: 4 }).map((_, index) => (
+                <div key={index} className="card" aria-hidden="true" style={{ width: "220px" }}>
                   <img src="https://user-images.githubusercontent.com/20684618/31289519-9ebdbe1a-aae6-11e7-8f82-bf794fdd9d1a.png" alt="" />{" "}
                   <div className="card-body">
                     <h5 className="card-title placeholder-glow">
