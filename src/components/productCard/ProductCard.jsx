@@ -19,7 +19,7 @@ export default function ProductCard({ product }) {
       <div className="product-rating">
         <span>{product.rating.rate}</span>
         <FontAwesomeIcon icon={faStar} />
-        <span>{product.rating.count}avis</span>
+        <span>/ {product.rating.count} avis</span>
       </div>
     </div>
   );

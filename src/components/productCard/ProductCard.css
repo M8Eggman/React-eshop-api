@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
   transition: box-shadow 200ms;
 }
 .product-card:hover {
@@ -41,4 +42,9 @@
   margin-top: 8px;
   color: goldenrod;
   font-size: 1rem;
+  height: 20px;
+}
+.product-rating svg {
+  position: relative;
+  bottom: 2px;
 }
