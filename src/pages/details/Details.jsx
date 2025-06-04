@@ -13,9 +13,7 @@ export default function Details() {
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
-      .then((response) => {
-        setProduct(response.data.find((item) => item.id === parseInt(id)));
-      })
+      .then((response) => setProduct(response.data.find((item) => item.id === parseInt(id))))
       .catch((error) => console.error(error));
   }, [id]);
 
