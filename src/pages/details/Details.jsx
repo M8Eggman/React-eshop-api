@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Details.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTurnUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Details() {
   const { id } = useParams();
@@ -19,8 +21,8 @@ export default function Details() {
 
   return product ? (
     <section className="details">
-      <button className="details-back-btn" onClick={() => navigate("/products")}>
-        &larr; Retour
+      <button className="details-back-btn" onClick={() => navigate(-1)}>
+        <FontAwesomeIcon icon={faTurnUp} style={{ rotate: "-90deg", position: "relative", bottom: "2px" }} /> <span>Retour</span>
       </button>
       <div className="details-img">
         <img src={product.image} alt={product.title} />
